@@ -2,6 +2,8 @@
 import { Navbar as BootstrapNavbar } from 'bootstrap';
 import { getAuthenticatedUser, isAuthenticated } from '../../utils/auths';
 
+const SITE_NAME = 'yourSiteName';
+
 const Navbar = () => {
   renderNavbar();
 };
@@ -10,9 +12,9 @@ function renderNavbar() {
   const authenticatedUser = getAuthenticatedUser();
 
   const anonymousUserNavbar = `
-<nav class="navbar navbar-expand-lg navbar-light bg-danger">
+<nav class="navbar navbar-expand-lg navbar-light bg-info">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">myMovies</a>
+        <a class="navbar-brand" href="#">${SITE_NAME}</a>
         <button
           class="navbar-toggler"
           type="button"
@@ -28,7 +30,7 @@ function renderNavbar() {
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="#" data-uri="/">Home</a>
-            </li>
+            </li>      
             <li id="loginItem" class="nav-item">
               <a class="nav-link" href="#" data-uri="/login">Login</a>
             </li>
@@ -42,7 +44,7 @@ function renderNavbar() {
 `;
 
   const authenticatedUserNavbar = `
-<nav class="navbar navbar-expand-lg navbar-light bg-danger">
+<nav class="navbar navbar-expand-lg navbar-light bg-info">
       <div class="container-fluid">
         <a class="navbar-brand" href="#">myMovies</a>
         <button
@@ -60,13 +62,7 @@ function renderNavbar() {
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="#" data-uri="/">Home</a>
-            </li>          
-            <li class="nav-item">
-              <a class="nav-link" href="#" data-uri="/manage-movies">Manage movies</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#" data-uri="/add-movie">Add a movie</a>
-            </li>
+            </li>            
             <li class="nav-item">
               <a class="nav-link" href="#" data-uri="/logout">Logout</a>
             </li>    

@@ -1,4 +1,4 @@
-import { setAuthenticatedUser, setRememberMe, getRememberMe } from '../../utils/auths';
+import { getRememberMe, setAuthenticatedUser, setRememberMe } from '../../utils/auths';
 import { clearPage, renderPageTitle } from '../../utils/render';
 import Navbar from '../Navbar/Navbar';
 import Navigate from '../Router/Navigate';
@@ -28,7 +28,8 @@ function renderRegisterForm() {
   const submit = document.createElement('input');
   submit.value = 'Login';
   submit.type = 'submit';
-  submit.className = 'btn btn-danger';
+  submit.className = 'btn btn-info';
+
   const formCheckWrapper = document.createElement('div');
   formCheckWrapper.className = 'mb-3 form-check';
 
@@ -50,8 +51,8 @@ function renderRegisterForm() {
 
   form.appendChild(username);
   form.appendChild(password);
-  form.appendChild(submit);
   form.appendChild(formCheckWrapper);
+  form.appendChild(submit);
   main.appendChild(form);
   form.addEventListener('submit', onLogin);
 }
@@ -77,7 +78,7 @@ async function onLogin(e) {
     },
   };
 
-  const response = await fetch('/api/auths/login', options);
+  const response = await fetch(`${process.env.API_BASE_URL}/auths/login`, options);
 
   if (!response.ok) throw new Error(`fetch error : ${response.status} : ${response.statusText}`);
 

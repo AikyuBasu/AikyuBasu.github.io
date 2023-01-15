@@ -11,11 +11,4 @@ const renderPageTitle = (title) => {
   main.appendChild(pageTitle);
 };
 
-const renderImage = (url, wrapper) => {
-  const image = document.createElement('img');
-  image.src = url;
-  wrapper.appendChild(image);
-}
-
-export { clearPage, renderPageTitle, renderImage };
-
+export { clearPage, renderPageTitle };
